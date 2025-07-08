@@ -1,17 +1,25 @@
 <?php
-// Récupérer les images depuis le dossier uploads/
-$images = [];
-$dossier = 'uploads';
-if (is_dir($dossier)) {
-    $dir = opendir($dossier);
-    while (($fichier = readdir($dir)) !== false) {
-        if ($fichier !== '.' && $fichier !== '..' && is_file($dossier . '/' . $fichier)) {
-            $images[] = $fichier;
+function getUploadedImages($dossier = 'uploads')
+{
+    $images = [];
+
+    if (is_dir($dossier)) {
+        $dir = opendir($dossier);
+        while (($fichier = readdir($dir)) !== false) {
+            if ($fichier !== '.' && $fichier !== '..' && is_file($dossier . '/' . $fichier)) {
+                $images[] = $fichier;
+            }
         }
+        closedir($dir);
     }
-    closedir($dir);
-    rsort($images); // Affiche les plus récentes d’abord
+
+    // Manipulation de tableau PHP : tri décroissant (plus récentes en haut)
+    rsort($images); // ou array_reverse(sort(...)) pour montrer la maîtrise
+
+    return $images;
 }
+
+$images = getUploadedImages();
 ?>
 
 <!DOCTYPE html>
@@ -49,9 +57,8 @@ if (is_dir($dossier)) {
                 <button type="submit">Publier</button>
             </form>
         </div>
-
     </section>
-    <!-- 🎉 Affichage des images uploadées -->
+
     <section class="galerie">
         <?php foreach ($images as $img): ?>
             <div style="text-align: center;">
