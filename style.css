@@ -80,7 +80,7 @@ p {
 }
 
 input {
-    font-size: 2rem;
+    font-size: 1rem;
     color: rgb(20, 21, 22);
     border: solid rgb(235, 238, 240);
 
@@ -98,8 +98,11 @@ label {
     font-family: "Rubik Dirt", system-ui;
     font-weight: 400;
     font-style: normal;
+    
 }
 
 .paysage {
     flex-wrap: wrap;
 }
+
+
