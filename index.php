@@ -1,4 +1,19 @@
-<?php require 'functions.php'; ?>
+<?php
+// Récupérer les images depuis le dossier uploads/
+$images = [];
+$dossier = 'uploads';
+if (is_dir($dossier)) {
+    $dir = opendir($dossier);
+    while (($fichier = readdir($dir)) !== false) {
+        if ($fichier !== '.' && $fichier !== '..' && is_file($dossier . '/' . $fichier)) {
+            $images[] = $fichier;
+        }
+    }
+    closedir($dir);
+    rsort($images); // Affiche les plus récentes d’abord
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,14 +34,8 @@
         <img src="insta.png" alt="">
     </header>
 
-    <!-- : Indique la page vers laquelle les données du formulaire seront envoyées après le clic sur "Envoyer". Ici, c’est le fichier PHP traitement.php qui va recevoir et traiter les données.-->
-    <!-- : Méthode d’envoi des données. POST permet d’envoyer des fichiers ou des données sensibles (contrairement à GET, qui les affiche dans l'URL).-->
-    <!-- : C’est obligatoire quand tu veux envoyer des fichiers (comme des images). Cela dit au navigateur de préparer les données dans un format spécial pour les fichiers.-->
     <section class="formulaire-inscription">
-
-        
-            <!-- Formulaire de publication -->
-             <div class="formulaire">
+        <div class="formulaire">
             <form action="traitement.php" method="POST" enctype="multipart/form-data">
                 <label for="auteur">Auteur :</label>
                 <input type="text" name="auteur" id="auteur" required>
@@ -39,10 +48,18 @@
 
                 <button type="submit">Publier</button>
             </form>
+        </div>
+
+    </section>
+    <!-- 🎉 Affichage des images uploadées -->
+    <section class="galerie">
+        <?php foreach ($images as $img): ?>
+            <div style="text-align: center;">
+                <img class="image" src="uploads/<?= htmlspecialchars($img) ?>" alt="image publiée">
+                <p><?= htmlspecialchars($img) ?></p>
             </div>
-            <img class="paysage" src="paysage.jpeg" alt="paysage";>
-
-
+        <?php endforeach; ?>
+    </section>
 
 
 </body>
