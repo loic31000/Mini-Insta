@@ -1,0 +1,51 @@
+<?php require 'functions.php'; ?>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Insta</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Dirt&family=Slackey&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <img src="insta.png" alt="">
+    </header>
+
+    <!-- : Indique la page vers laquelle les données du formulaire seront envoyées après le clic sur "Envoyer". Ici, c’est le fichier PHP traitement.php qui va recevoir et traiter les données.-->
+    <!-- : Méthode d’envoi des données. POST permet d’envoyer des fichiers ou des données sensibles (contrairement à GET, qui les affiche dans l'URL).-->
+    <!-- : C’est obligatoire quand tu veux envoyer des fichiers (comme des images). Cela dit au navigateur de préparer les données dans un format spécial pour les fichiers.-->
+    <section class="formulaire-inscription">
+
+        <div class="upload">
+            <!-- Formulaire de publication -->
+            <form action="traitement.php" method="POST" enctype="multipart/form-data">
+                <label for="auteur">Auteur :</label>
+                <input type="text" name="auteur" id="auteur" required>
+
+                <label for="description">Nom de l’image :</label>
+                <input type="text" name="description" id="description" required>
+
+                <label for="image">Image :</label>
+                <input type="file" name="image" id="image" accept="image/*" required>
+
+                <button type="submit">Publier</button>
+            </form>
+            <img class="paysage" src="paysage.jpeg" alt="paysage";>
+
+
+        </div>
+        </form>
+
+
+
+</body>
+
+</html>
