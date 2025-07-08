@@ -50,7 +50,8 @@ header img {
     flex-wrap: wrap;
     flex-direction: column;
     gap: 1.5em;
-    margin-bottom: 1.5em;
+    font-size: 1.5em;
+    margin: 2em;
 }
 
 p {
@@ -63,9 +64,9 @@ p {
 
 
 .image {
-    border-radius: 6.12rem;
-    padding: 5em;
-    margin: 3em;
+    border-radius: 3.8rem;
+    width: 550px;
+    height: 800px;
 }
 
 .upload {
