@@ -1,27 +1,24 @@
 <?php
 if (
-    isset($_POST['auteur'], $_POST['description'], $_FILES['image']) &&
-    $_FILES['image']['error'] === UPLOAD_ERR_OK
+    isset($_POST['auteur'], $_POST['description']) &&
+    isset($_FILES['image']) &&
+    $_FILES['image']['error'] === 0
 ) {
     $auteur = strtolower(trim($_POST['auteur']));
-    $description = strtolower(trim($_POST['description']));
-    $image = $_FILES['image'];
+    $desc = strtolower(trim($_POST['description']));
+    $time = date('YmdHis');
+    
+    $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+    $nomFichier = "{$time}-{$auteur}-{$desc}.{$extension}";
+    $cheminDestination = "uploads/" . $nomFichier;
 
-    $uploadDir = __DIR__ . '/uploads/';
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0777, true);
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $cheminDestination)) {
+        // ✅ Rediriger vers upload.php avec le nom du fichier en GET
+        header("Location: upload.php?file=" . urlencode($nomFichier));
+        exit();
+    } else {
+        echo "Erreur lors de l’upload.";
     }
-
-    $timestamp = date('YmdHis');
-    $extension = pathinfo($image['name'], PATHINFO_EXTENSION);
-    $safeAuteur = preg_replace('/[^a-z0-9]/i', '-', $auteur);
-    $safeDesc = preg_replace('/[^a-z0-9]/i', '-', $description);
-
-    $newName = "$timestamp-$safeAuteur-$safeDesc.$extension";
-    $destination = $uploadDir . $newName;
-
-    move_uploaded_file($image['tmp_name'], $destination);
+} else {
+    echo "Formulaire incomplet.";
 }
-
-header('Location: index.php');
-exit;

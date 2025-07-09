@@ -13,8 +13,7 @@ function getUploadedImages($dossier = 'uploads')
         closedir($dir);
     }
 
-    // Manipulation de tableau PHP : tri décroissant (plus récentes en haut)
-    rsort($images); // ou array_reverse(sort(...)) pour montrer la maîtrise
+    rsort($images);
 
     return $images;
 }

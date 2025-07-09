@@ -89,6 +89,7 @@ input {
 button {
     font-size: 2rem;
     border: solid rgb(249, 251, 252);
+    border-radius: 2em;
 
 }
 
