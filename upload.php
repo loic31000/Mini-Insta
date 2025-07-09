@@ -27,13 +27,12 @@ if (!file_exists($cheminImage)) {
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Dirt&family=Slackey&display=swap"
         rel="stylesheet">
     <style>
-        /* Styles spécifiques à la page de confirmation */
         .confirmation {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: #4ccff7;
+            background: linear-gradient(to right, #f3eded, #4ccff7);
             height: 100vh;
             text-align: center;
         }
@@ -42,25 +41,24 @@ if (!file_exists($cheminImage)) {
             font-family: "Rubik Dirt", system-ui;
             font-weight: 400;
             font-style: normal;
-            text-shadow: 2px 2px 4px rgba(13, 240, 240, 0.8);
-            font-size: 2.5rem;
+            font-size: 2.9em;
+
         }
 
         .confirmation img {
-            max-width: 80%;
+            max-width: 59.6%;
             height: auto;
             border-radius: 2rem;
             margin: 1rem 0;
-            max-height: 34.7em;
-
         }
 
         .confirmation p {
+            color: black;
             font-size: 1.2rem;
             font-family: monospace;
-            font-family: "Rubik Dirt", sans-serif;
-            font-size: 1.7rem;
-            color: black;
+            font-family: "Rubik Dirt", system-ui;
+            font-weight: 400;
+            font-style: normal;
         }
 
         .confirmation a {
@@ -68,22 +66,19 @@ if (!file_exists($cheminImage)) {
             color: black;
             text-decoration: none;
             padding: 0.8rem 2rem;
-            margin-bottom: 2em;
-
-            border-radius: 0.4rem;
             margin-top: 1rem;
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
             text-shadow: 2px 2px 4px rgba(13, 240, 240, 0.8);
             font-family: "Rubik Dirt", sans-serif;
-            font-size: 1.7rem;
+            font-size: 3rem;
             color: black;
+            border-radius: 2em;
+            border: solid rgb(249, 251, 252);
         }
 
-        @media only screen and (min-width : 321px) {
-
-            /* Styles pour cette Media Queries */
+        @media only screen and (min-width : 1224px) {
             .confirmation img {
-                max-height: 40.1em;
+                max-width: 35%;
             }
         }
     </style>
