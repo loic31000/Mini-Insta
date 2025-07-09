@@ -46,10 +46,10 @@ if (!file_exists($cheminImage)) {
         }
 
         .confirmation img {
-            max-width: 59.6%;
-            height: auto;
             border-radius: 2rem;
             margin: 1rem 0;
+            width: 590.4px;
+            height: 897.8px;
         }
 
         .confirmation p {
@@ -74,11 +74,13 @@ if (!file_exists($cheminImage)) {
             color: black;
             border-radius: 2em;
             border: solid rgb(249, 251, 252);
+            margin-bottom: 2em;
         }
 
         @media only screen and (min-width : 1224px) {
             .confirmation img {
-                max-width: 35%;
+                width: 572.1px;
+                height: 696.9px;
             }
         }
     </style>
