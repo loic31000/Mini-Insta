@@ -22,6 +22,10 @@ if (!file_exists($cheminImage)) {
     <meta charset="UTF-8">
     <title>Upload Réussi</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Dirt&family=Slackey&display=swap"
+        rel="stylesheet">
     <style>
         /* Styles spécifiques à la page de confirmation */
         .confirmation {
@@ -35,9 +39,11 @@ if (!file_exists($cheminImage)) {
         }
 
         .confirmation h1 {
-            font-family: "Rubik Dirt", sans-serif;
-            font-size: 3rem;
-            color: white;
+            font-family: "Rubik Dirt", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            text-shadow: 2px 2px 4px rgba(13, 240, 240, 0.8);
+            font-size: 2.5rem;
         }
 
         .confirmation img {
@@ -48,9 +54,11 @@ if (!file_exists($cheminImage)) {
         }
 
         .confirmation p {
-            color: white;
             font-size: 1.2rem;
             font-family: monospace;
+            font-family: "Rubik Dirt", sans-serif;
+            font-size: 1.7rem;
+            color: black;
         }
 
         .confirmation a {
@@ -58,10 +66,14 @@ if (!file_exists($cheminImage)) {
             color: black;
             text-decoration: none;
             padding: 0.8rem 2rem;
-            font-size: 1.2rem;
+
             border-radius: 0.4rem;
             margin-top: 1rem;
-            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 4px rgba(13, 240, 240, 0.8);
+            font-family: "Rubik Dirt", sans-serif;
+            font-size: 1.7rem;
+            color: black;
         }
     </style>
 </head>
