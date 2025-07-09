@@ -51,6 +51,8 @@ if (!file_exists($cheminImage)) {
             height: auto;
             border-radius: 2rem;
             margin: 1rem 0;
+            max-height: 34.7em;
+
         }
 
         .confirmation p {
@@ -66,6 +68,7 @@ if (!file_exists($cheminImage)) {
             color: black;
             text-decoration: none;
             padding: 0.8rem 2rem;
+            margin-bottom: 2em;
 
             border-radius: 0.4rem;
             margin-top: 1rem;
@@ -74,6 +77,14 @@ if (!file_exists($cheminImage)) {
             font-family: "Rubik Dirt", sans-serif;
             font-size: 1.7rem;
             color: black;
+        }
+
+        @media only screen and (min-width : 321px) {
+
+            /* Styles pour cette Media Queries */
+            .confirmation img {
+                max-height: 40.1em;
+            }
         }
     </style>
 </head>
