@@ -52,6 +52,7 @@ header img {
     gap: 1.5em;
     font-size: 1.5em;
     margin: 2em;
+    text-shadow: 2px 2px 4px rgba(13, 240, 240, 0.8);
 }
 
 p {
@@ -90,6 +91,10 @@ button {
     font-size: 2rem;
     border: solid rgb(249, 251, 252);
     border-radius: 2em;
+    font-family: "Rubik Dirt", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 2px 2px 4px rgba(13, 240, 240, 0.8);
 
 }
 
@@ -99,11 +104,9 @@ label {
     font-family: "Rubik Dirt", system-ui;
     font-weight: 400;
     font-style: normal;
-    
+
 }
 
 .paysage {
     flex-wrap: wrap;
 }
-
-
