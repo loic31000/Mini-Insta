@@ -62,12 +62,11 @@ if (!file_exists($cheminImage)) {
         }
 
         .confirmation a {
-            background: white;
-            color: black;
+            background-color: #4ccff7;
             text-decoration: none;
             padding: 0.8rem 2rem;
             margin-top: 1rem;
-            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 3px 3px 6px rgb(14, 15, 15);
             text-shadow: 2px 2px 4px rgba(13, 240, 240, 0.8);
             font-family: "Rubik Dirt", sans-serif;
             font-size: 3rem;
