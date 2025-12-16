@@ -6,5 +6,16 @@
 ![Uploads](https://img.shields.io/badge/Images-Upload-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Projet-Mini%20Instagram-FF69B4?style=for-the-badge)
 
+```
+Mini-Insta
+├─ uploads/
+├─ index.php
+├─ style.css
+├─ upload.php
+├─ traitement.php
+├─ insta.png
+└─ README.md
+```
+
 Mini‑Insta est un mini‑projet en **PHP / HTML / CSS** qui permet d’uploader des images et de les afficher comme un petit flux Instagram.
 Les fichiers `upload.php` / `traitement.php` gèrent la logique d’upload et de traitement, `uploads/` stocke les images, `index.php` affiche l’interface du “feed” stylisé par `style.css`.
