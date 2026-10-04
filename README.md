@@ -1,83 +1,66 @@
-# 📸 Mini-Insta
+# Mini-Insta
 
-![PHP](https://img.shields.io/badge/PHP-8.x-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-Formulaires-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-Layout-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Uploads](https://img.shields.io/badge/Images-Upload-blue?style=for-the-badge)
-![Status](https://img.shields.io/badge/Projet-Mini%20Instagram-FF69B4?style=for-the-badge)
+<p align="center">
+  <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.2">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=apache&logoColor=white" alt="Apache">
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+</p>
 
+Mini-projet PHP permettant de publier des images dans une galerie locale.
+
+## Fonctionnalités vérifiées
+
+- formulaire avec auteur, description et fichier image ;
+- upload via `multipart/form-data` ;
+- nom de fichier généré avec date, auteur et description ;
+- stockage des fichiers dans `uploads/` ;
+- page de confirmation après un upload réussi ;
+- galerie triée par nom de fichier en ordre décroissant ;
+- échappement HTML lors de l'affichage du nom des fichiers.
+
+Les métadonnées ne sont pas stockées dans une base de données. Elles sont intégrées au nom du fichier généré.
+
+## Structure
+
+```text
+Mini-Insta/
+├── index.php
+├── traitement.php
+├── upload.php
+├── style.css
+├── insta.png
+├── uploads/
+├── dockerfile
+└── README.md
 ```
-Mini-Insta
-├─ uploads/
-├─ index.php
-├─ style.css
-├─ upload.php
-├─ traitement.php
-├─ insta.png
-└─ README.md
-```
 
-# Maquette MiniInsta
+## Lancement local
 
-Mini‑Insta est un mini‑projet en **PHP / HTML / CSS** qui permet d’uploader des images et de les afficher comme un petit flux Instagram.
-Les fichiers `upload.php` / `traitement.php` gèrent la logique d’upload et de traitement, `uploads/` stocke les images, `index.php` affiche l’interface du “feed” stylisé par `style.css`.
-
----
-
-## Méthode 1 : Lancement Classique (Sans Docker)
-
-### 1. Prérequis
-Assure-vous d'avoir installé sur votre machine :
-* [Git](https://git-scm.com/) (pour cloner le projet)
-* Un navigateur web (Chrome, Firefox, Edge, etc.)
-
-### 2. Cloner et lancer le projet
-Ouvrez votre terminal et exécutez les commandes suivantes :
+Prérequis : PHP.
 
 ```bash
-# Cloner le dépôt
-git clone [https://github.com/loic31000/Mini-Insta.git](https://github.com/loic31000/Mini-Insta.git)
-
-# Accéder au dossier
+git clone https://github.com/loic31000/Mini-Insta.git
 cd Mini-Insta
-
-# Lancer le serveur PHP
 php -S localhost:8000
 ```
 
-Il vous suffit ensuite d'ouvrir `http://localhost:8080/` directement dans votre navigateur, ou d'utiliser l'extension **Live Server** sur VS Code.
+Ouvrez ensuite `http://localhost:8000`.
 
----
+## Lancement avec Docker
 
-## Méthode 2 : Lancement avec Docker (Recommandé)
-
-Cette méthode utilise **Apache** (via une image légère Alpine Linux) pour servir la maquette localement sans rien installer d'autre que Docker.
-
-### 1. Prérequis
-
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé et démarré sur votre machine.
-
-### 2. Construire l'image Docker
-
-Placez-vous à la racine du projet (là où se trouve le `Dockerfile`) et lancez la construction de l'image avec le tag `mini-insta` (*attention au point `.` à la fin*) :
+Le `dockerfile` utilise `php:8.2-apache` et prépare les droits du dossier `uploads/`.
 
 ```bash
-docker build --tag mini-insta .
+docker build -f dockerfile -t mini-insta .
+docker run --rm -p 8080:80 --name mini-insta mini-insta
 ```
 
-### 3. Lancer le conteneur
+Ouvrez ensuite `http://localhost:8080`.
 
-Démarrez le conteneur en arrière-plan en redirigeant le port `80` de Nginx vers le port `8080` de votre machine :
+## Limites actuelles
 
-```bash
-docker run -p 8080:80 --name projet-insta mini-insta
-```
+Le traitement vérifie que l'upload PHP ne remonte pas d'erreur, mais il ne valide pas encore explicitement le type MIME, la taille maximale du fichier ou une liste d'extensions autorisées côté serveur.
 
-### 4. Accéder au projet
-
-Ouvrez votre navigateur et rendez-vous sur :
-👉 **[http://localhost:8080](https://www.google.com/search?q=http://localhost:8080)**
-
-> 📱 **Astuce pour le Mini-Insta :** Une fois sur le site, appuyez sur `F12` dans votre navigateur et basculez en mode "Mobile/Tablette" pour tester le comportement responsive du menu burger !
-
----
+Le dépôt ne contient actuellement ni tests automatisés ni fichier de licence.
